@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import barangan from "../../stor/defaultProduk";
   import Barang from "./Product.svelte";
+  import Loading from "../Loading.svelte";
   export let tajuk = "";
 </script>
 
@@ -10,6 +11,8 @@
   <div class="products-center">
     {#each $barangan as produk (produk.id)}
       <Barang {produk} />
+    {:else}
+      <Loading />
     {/each}
   </div>
 </section>
