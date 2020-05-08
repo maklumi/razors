@@ -14,7 +14,7 @@
           </li>
         {/each}
       </ul>
-      <a href="/" use:link class="nav-logo big-loop_guard">
+      <a href="/" use:link class="nav-logo big-logo">
         <img src="assets/images/logo.svg" alt="logo razors" class="logo" />
       </a>
 
