@@ -1,4 +1,5 @@
 <script>
+  import TroliBtn from "../Troli/TroliButton.svelte";
   import { link } from "svelte-routing";
 </script>
 
@@ -13,7 +14,7 @@
       <img src="/assets/images/logo.svg" class="logo" alt="logo" />
     </a>
 
-    <button>troli</button>
+    <TroliBtn />
 
   </div>
 </nav>
