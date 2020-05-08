@@ -1,5 +1,4 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
   import barangan from "../../stor/defaultProduk";
   import Barang from "./Product.svelte";
   import Loading from "../Loading.svelte";
