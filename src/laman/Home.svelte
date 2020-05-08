@@ -1,5 +1,8 @@
 <script>
-  export let location;
+  import Hero from "../komponen/Hero.svelte";
+  import { link } from "svelte-routing";
 </script>
 
-<h1>Rumah</h1>
+<Hero>
+  <a href="produk" class="btn btn-primary btn-hero" use:link>kedai</a>
+</Hero>
