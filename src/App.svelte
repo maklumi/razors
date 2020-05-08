@@ -6,11 +6,19 @@
   import Login from "./laman/Login.svelte";
   import Products from "./laman/Products.svelte";
   import ProductTemplate from "./laman/ProductTemplate.svelte";
+  // routes
+  import { Router, Route, Link } from "svelte-routing";
 </script>
 
-<style>
-
-</style>
-
-<About />
-<i class="fas fa-home fa-7x" />
+<Router>
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="about">About</Link>
+    <Link to="produk">Produk-produk</Link>
+  </nav>
+  <Route path="/" component={Home} />
+  <Route path="about" component={About} />
+  <Route path="produk" component={Products} />
+  <Route path="produk/:id" component={ProductTemplate} />
+  <Route path="login" component={Login} />
+</Router>
