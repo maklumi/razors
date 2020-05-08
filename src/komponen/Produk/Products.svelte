@@ -1,11 +1,12 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import barangan from "../../stor/defaultProduk";
-  console.log(barangan);
+
   let localProducts = [];
   onMount(() => {
     barangan.subscribe((nilai) => {
       localProducts = nilai;
+      console.log(nilai);
     });
   });
 </script>
