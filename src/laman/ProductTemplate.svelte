@@ -1,6 +1,36 @@
 <script>
   export let id;
-  export let location;
+
+  import brgn from "../stor/defaultProduk";
+  import Loading from "../komponen/Loading.svelte";
+  import { link } from "svelte-routing";
+
+  $: prod = $brgn.find((item) => item.id === parseInt(id));
 </script>
 
-<h1>Produk template with id: {id}</h1>
+{#if !prod}
+  <Loading />
+{:else}
+  <section class="single-product">
+    <a href="/produk" use:link class="btn btn-primary">
+      Kembali ke semua barangan
+    </a>
+    <div class="single-product-container">
+      <article class="single-product-image">
+        <img src={prod.image} alt={prod.title} />
+      </article>
+      <article>
+        <h1>{prod.title}</h1>
+        <h2>${prod.price}</h2>
+        <p>{prod.description}</p>
+        <button
+          class="btn btn-primary btn-block"
+          on:click={() => {
+            console.log('masuk');
+          }}>
+          Masuk troli
+        </button>
+      </article>
+    </div>
+  </section>
+{/if}
