@@ -11,11 +11,14 @@
   // beberap komponen
   import Navbar from "./komponen/Navbar/MainNavbar.svelte";
   import SideBar from "./komponen/Navbar/SideBar.svelte";
+  import globalNav from "./stor/globalNav";
 </script>
 
 <Router>
   <Navbar />
-  <SideBar />
+  {#if $globalNav.sidebar}
+    <SideBar />
+  {/if}
   <Route path="/" component={Home} />
   <Route path="about" component={About} />
   <Route path="produk" component={Products} />
