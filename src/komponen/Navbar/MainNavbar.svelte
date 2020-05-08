@@ -1,7 +1,12 @@
 <script>
   import SmallNavbar from "./SmallNavbar.svelte";
   import BigNavbar from "./BigNavbar.svelte";
+  let lebarSkrin;
 </script>
 
-<SmallNavbar />
-<BigNavbar />
+<svelte:window bind:innerWidth={lebarSkrin} />
+{#if lebarSkrin > 900}
+  <BigNavbar />
+{:else}
+  <SmallNavbar />
+{/if}
