@@ -8,6 +8,9 @@
   $: prod = $brgn.find((item) => item.id === parseInt(id));
 </script>
 
+<svelte:head>
+  <title>{!prod ? 'satu produk' : prod.title}</title>
+</svelte:head>
 {#if !prod}
   <Loading />
 {:else}
