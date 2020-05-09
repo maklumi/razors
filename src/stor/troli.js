@@ -21,4 +21,36 @@ export const keluarkanItem = id => {
   })
 }
 
+const bilang = (id, items, tindakan) => {
+  return items.map((it) => {
+    let amount;
+    if (tindakan === "plus") {
+      amount = it.amount + 1;
+    } else if (tindakan === "minus") {
+      amount = it.amount - 1;
+    } else {
+      amount = it.amount
+    }
+    return it.id === id ? { ...it, amount } : { ...it };
+  });
+};
+
+export const tambah = (id) => {
+  stortroli.update((dalamTroli) => bilang(id, dalamTroli, "plus"));
+};
+
+export const kurang = (id) => {
+  stortroli.update(dalamTroli => {
+    let item = dalamTroli.find(it => it.id === id)
+    let troli
+    if (item.amount === 1) {
+      troli = remove(id, dalamTroli)   
+    }
+    else {
+      troli = bilang(id, dalamTroli, "minus")
+    }
+    return [...troli]
+  });
+};
+
 export default stortroli
