@@ -1,8 +1,9 @@
 <script>
-  import pautan from "../../konstan/pautan";
-  import { link } from "svelte-routing";
-  import globalnav from "../../stor/globalNav";
-  import { fly, fade } from "svelte/transition";
+  import pautan from '../../konstan/pautan'
+  import { link } from 'svelte-routing'
+  import globalnav from '../../stor/globalNav'
+  import { fly, fade } from 'svelte/transition'
+  import LoginLink from '../Login.svelte'
 </script>
 
 <div class="sidebar-container" transition:fly={{ x: -1000 }}>
@@ -29,6 +30,9 @@
           </a>
         </li>
       {/each}
+      <li>
+        <LoginLink />
+      </li>
     </ul>
   </div>
 </div>

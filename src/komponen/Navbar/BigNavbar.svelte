@@ -1,7 +1,8 @@
 <script>
-  import ButangTroli from "../Troli/TroliButton.svelte";
-  import { link } from "svelte-routing";
-  import pautan from "../../konstan/pautan";
+  import ButangTroli from '../Troli/TroliButton.svelte'
+  import { link } from 'svelte-routing'
+  import pautan from '../../konstan/pautan'
+  import LoginLink from '../Login.svelte'
 </script>
 
 <nav class="navbar">
@@ -19,6 +20,7 @@
       </a>
 
       <div class="nav-aside">
+        <LoginLink />
         <ButangTroli />
       </div>
     </div>

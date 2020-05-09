@@ -1,8 +1,8 @@
 <script>
-  import TroliBtn from "../Troli/TroliButton.svelte";
-  import { link } from "svelte-routing";
-  import globalnav from "../../stor/globalNav";
-  let togelsidebar = globalnav.togelItem;
+  import TroliBtn from '../Troli/TroliButton.svelte'
+  import { link } from 'svelte-routing'
+  import globalnav from '../../stor/globalNav'
+  let togelsidebar = globalnav.togelItem
 </script>
 
 <nav class="navbar">
