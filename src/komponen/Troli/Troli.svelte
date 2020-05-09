@@ -2,6 +2,7 @@
   import globalnav from "../../stor/globalNav";
   import { fly, fade, blur } from "svelte/transition";
   import { link } from "svelte-routing";
+  import LisItemTroli from "./LisItem.svelte";
 
   let user = false;
 </script>
@@ -20,7 +21,7 @@
         <span />
       </div>
 
-      <p>Barang dalam troli</p>
+      <LisItemTroli />
 
       <div class="cart-footer">
         {#if user}
