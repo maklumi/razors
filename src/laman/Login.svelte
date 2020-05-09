@@ -1,6 +1,7 @@
 <script>
   import loginUser from '../strapi/loginUser'
   import registerUser from '../strapi/registerUser'
+  import { navigate } from 'svelte-routing'
 
   let email = ''
   let password = ''
@@ -23,7 +24,11 @@
     } else {
       user = await registerUser({ email, username, password })
     }
-    console.log(user)
+
+    if (user) {
+      navigate('/produk')
+      return
+    }
   }
 </script>
 
