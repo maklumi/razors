@@ -15,4 +15,9 @@ export function setStorUser(usr) {
 export function setUser(usr) {
   userStor.set(usr)
 }
+
+export function logout() {
+  localStorage.clear()
+  userStor.set({ username: null, jwt: null })
+}
 export default userStor

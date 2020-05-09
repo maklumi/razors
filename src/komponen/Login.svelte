@@ -1,7 +1,7 @@
 <script>
   import user from '../stor/user'
   import { link } from 'svelte-routing'
-
+  import { logout } from '../stor/user'
   import navstor from '../stor/globalNav'
 </script>
 
@@ -10,6 +10,7 @@
     href="/"
     class="logout-btn"
     on:click={() => {
+      logout()
       navstor.togelItem('sidebar', false)
     }}>
     log keluar
