@@ -1,5 +1,63 @@
 <script>
-  export let location;
+  import { prevent_default, bind } from 'svelte/internal'
+
+  let email = ''
+  let password = ''
+  let username = 'default username'
+  let isMember = true
+  $: isEmpty = !email || !password || !username
+
+  function togelMember() {
+    isMember = !isMember
+  }
+  async function handleSubmit() {}
 </script>
 
-<h1>Log masuk</h1>
+<section class="form">
+  <h2 class="section-title">
+    {#if isMember}sign in{:else}daftar{/if}
+  </h2>
+  <form class="login-form" on:submit|preventDefault={handleSubmit}>
+
+    <div class="form-control">
+      <label for="email">email</label>
+      <input type="email" id="email" bind:value={email} />
+    </div>
+
+    <div class="form-control">
+      <label for="password">password</label>
+      <input type="password" id="password" bind:value={password} />
+    </div>
+
+    {#if !isMember}
+      <div class="form-control">
+        <label for="username">username</label>
+        <input type="text" id="username" bind:value={username} />
+      </div>
+    {/if}
+
+    {#if isEmpty}
+      <p class="form-empty">sila isi semua</p>
+    {/if}
+
+    <button
+      type="submit"
+      class="btn btn-block btn-primary"
+      disabled={isEmpty}
+      class:disabled={isEmpty}>
+      submit
+    </button>
+
+    {#if isMember}
+      <p class="register-link">
+        Belum member?
+        <button type="button" on:click={togelMember}>daftar sini</button>
+      </p>
+    {:else}
+      <p class="register-link">
+        Sudah member?
+        <button type="button" on:click={togelMember}>klik sini</button>
+      </p>
+    {/if}
+  </form>
+</section>

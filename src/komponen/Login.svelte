@@ -16,7 +16,7 @@
   </a>
 {:else}
   <a
-    href="/"
+    href="/login"
     class="logout-btn"
     on:click={() => {
       navstor.togelItem('sidebar', false)
