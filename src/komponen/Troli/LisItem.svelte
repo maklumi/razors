@@ -8,7 +8,7 @@
 <section class="cart-items">
   <article>
     {#each $dalamTroli as item, indeks (item.id)}
-      <Item />
+      <Item {item} />
     {:else}
       <h2 class="empty-cart">Troli masih kosong</h2>
     {/each}

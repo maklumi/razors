@@ -2,7 +2,7 @@ import {writable} from 'svelte/store'
 
 const globalStor = writable({
     sidebar:false,
-    troli:false,
+    troli:true,
     alert:false
 })
 
