@@ -1,6 +1,7 @@
 <script>
   export let item;
   let { id, title, price, image, amount } = item;
+  import { keluarkanItem } from "../../stor/troli";
 </script>
 
 <div class="cart-item">
@@ -11,7 +12,7 @@
     <button
       class="cart-btn remove-btn"
       on:click={() => {
-        console.log('removed');
+        keluarkanItem(id);
       }}>
       keluarkan
     </button>

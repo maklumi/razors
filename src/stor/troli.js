@@ -11,4 +11,14 @@ export const jumlahHarga = derived(stortroli, ($dalamTroli) => {
     return jumlah.toFixed(2);
   });
   
+const remove = (id, items) => {
+  return items.filter(item => item.id !== id)
+}
+
+export const keluarkanItem = id => {
+  stortroli.update(items => {
+    return remove(id, items)
+  })
+}
+
 export default stortroli
