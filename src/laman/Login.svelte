@@ -21,8 +21,9 @@
     if (isMember) {
       loginUser()
     } else {
-      registerUser()
+      user = await registerUser({ email, username, password })
     }
+    console.log(user)
   }
 </script>
 
