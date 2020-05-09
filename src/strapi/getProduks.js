@@ -7,7 +7,7 @@ export default async () => {
 
   const produks = await jsonresponse.json()
   if (produks.error) {
-    return null
+    return []
   }
   return produks
 }

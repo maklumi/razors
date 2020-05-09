@@ -1,9 +1,9 @@
 <script>
-  export let tajuk = "";
+  export let tajuk = ''
 
-  import barangan, { barangmukadepan } from "../../stor/defaultProduk";
-  import Barang from "./Product.svelte";
-  import Loading from "../Loading.svelte";
+  import barangan, { barangmukadepan } from '../../stor/produks'
+  import Barang from './Product.svelte'
+  import Loading from '../Loading.svelte'
 </script>
 
 {#if $barangmukadepan.length === 0}

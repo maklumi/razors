@@ -1,8 +1,8 @@
 <script>
-  import barangan from "../../stor/defaultProduk";
-  import Barang from "./Product.svelte";
-  import Loading from "../Loading.svelte";
-  export let tajuk = "";
+  import barangan from '../../stor/produks'
+  import Barang from './Product.svelte'
+  import Loading from '../Loading.svelte'
+  export let tajuk = ''
 </script>
 
 <section class="section">

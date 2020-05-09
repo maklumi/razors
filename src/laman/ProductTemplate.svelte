@@ -1,7 +1,7 @@
 <script>
   export let id
   import { tambahKeTroli } from '../stor/troli'
-  import brgn from '../stor/defaultProduk'
+  import brgn from '../stor/produks'
   import Loading from '../komponen/Loading.svelte'
   import { link } from 'svelte-routing'
   import globalnav from '../stor/globalNav'
