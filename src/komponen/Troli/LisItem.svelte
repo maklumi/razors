@@ -1,6 +1,6 @@
 <script>
   import Item from "./Item.svelte";
-  import dalamTroli from "../../stor/troli";
+  import dalamTroli, { jumlahHarga } from "../../stor/troli";
   import { fly } from "svelte/transition";
   import { flip } from "svelte/animate";
 </script>
@@ -18,4 +18,5 @@
       <h2 class="empty-cart">Troli masih kosong</h2>
     {/each}
   </article>
+  <h3 class="cart-total">Jumlah: ${$jumlahHarga}</h3>
 </section>
