@@ -1,5 +1,6 @@
 <script>
-  import { prevent_default, bind } from 'svelte/internal'
+  import loginUser from '../strapi/loginUser'
+  import registerUser from '../strapi/registerUser'
 
   let email = ''
   let password = ''
@@ -9,8 +10,20 @@
 
   function togelMember() {
     isMember = !isMember
+    if (!isMember) {
+      username = ''
+    } else {
+      username = 'default username'
+    }
   }
-  async function handleSubmit() {}
+  async function handleSubmit() {
+    let user
+    if (isMember) {
+      loginUser()
+    } else {
+      registerUser()
+    }
+  }
 </script>
 
 <section class="form">
