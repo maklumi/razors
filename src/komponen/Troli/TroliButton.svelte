@@ -1,5 +1,9 @@
 <script>
   import globalnav from "../../stor/globalNav";
+  import trolistor from "../../stor/troli";
+  $: jumlahbarang = $trolistor.reduce((acc, curr) => {
+    return acc + curr.amount;
+  }, 0);
 </script>
 
 <div class="btn-cart-container">
@@ -9,5 +13,5 @@
     <i class="fas fa-cart-plus" />
   </button>
 
-  <span class="btn-cart-items">10</span>
+  <span class="btn-cart-items">{jumlahbarang}</span>
 </div>
