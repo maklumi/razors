@@ -15,7 +15,7 @@
         {/each}
       </ul>
       <a href="/" use:link class="nav-logo big-logo">
-        <img src="assets/images/logo.svg" alt="logo razors" class="logo" />
+        <img src="/assets/images/logo.svg" alt="logo razors" class="logo" />
       </a>
 
       <div class="nav-aside">

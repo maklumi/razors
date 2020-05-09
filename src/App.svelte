@@ -12,12 +12,16 @@
   import Navbar from "./komponen/Navbar/MainNavbar.svelte";
   import SideBar from "./komponen/Navbar/SideBar.svelte";
   import globalNav from "./stor/globalNav";
+  import Troli from "./komponen/Troli/Troli.svelte";
 </script>
 
 <Router>
   <Navbar />
   {#if $globalNav.sidebar}
     <SideBar />
+  {/if}
+  {#if $globalNav.troli}
+    <Troli />
   {/if}
   <Route path="/" component={Home} />
   <Route path="about" component={About} />

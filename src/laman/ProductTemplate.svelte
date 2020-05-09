@@ -4,6 +4,7 @@
   import brgn from "../stor/defaultProduk";
   import Loading from "../komponen/Loading.svelte";
   import { link } from "svelte-routing";
+  import globalnav from "../stor/globalNav";
 
   $: prod = $brgn.find((item) => item.id === parseInt(id));
 </script>
@@ -29,7 +30,7 @@
         <button
           class="btn btn-primary btn-block"
           on:click={() => {
-            console.log('masuk');
+            globalnav.togelItem('troli', true);
           }}>
           Masuk troli
         </button>

@@ -1,5 +1,11 @@
+<script>
+  import globalnav from "../../stor/globalNav";
+</script>
+
 <div class="btn-cart-container">
-  <button class="btn-cart-toggle" on:click={() => console.log('brg troli')}>
+  <button
+    class="btn-cart-toggle"
+    on:click={() => globalnav.togelItem('troli', true)}>
     <i class="fas fa-cart-plus" />
   </button>
 
