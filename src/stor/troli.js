@@ -1,7 +1,7 @@
 import { writable, derived } from 'svelte/store'
-import localcart from '../localCart'
+// import localcart from '../localCart'
 
-const stortroli = writable([...localcart])
+const stortroli = writable(storTroliLokal())
 
 export const jumlahHarga = derived(stortroli, ($dalamTroli) => {
   let jumlah = $dalamTroli.reduce(
@@ -66,4 +66,15 @@ export const tambahKeTroli = (prod) => {
     return troli
   })
 }
+
+function storTroliLokal() {
+  return localStorage.getItem('troli')
+    ? JSON.parse(localStorage.getItem('troli'))
+    : []
+}
+
+export function setStorTroliLokal(params) {
+  localStorage.setItem('troli', JSON.stringify(params))
+}
+
 export default stortroli
