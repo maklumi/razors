@@ -1,12 +1,12 @@
 <script>
-  export let id;
+  export let id
+  import { tambahKeTroli } from '../stor/troli'
+  import brgn from '../stor/defaultProduk'
+  import Loading from '../komponen/Loading.svelte'
+  import { link } from 'svelte-routing'
+  import globalnav from '../stor/globalNav'
 
-  import brgn from "../stor/defaultProduk";
-  import Loading from "../komponen/Loading.svelte";
-  import { link } from "svelte-routing";
-  import globalnav from "../stor/globalNav";
-
-  $: prod = $brgn.find((item) => item.id === parseInt(id));
+  $: prod = $brgn.find((item) => item.id === parseInt(id))
 </script>
 
 <svelte:head>
@@ -30,7 +30,8 @@
         <button
           class="btn btn-primary btn-block"
           on:click={() => {
-            globalnav.togelItem('troli', true);
+            globalnav.togelItem('troli', true)
+            tambahKeTroli(prod)
           }}>
           Masuk troli
         </button>

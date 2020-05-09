@@ -1,8 +1,8 @@
 <script>
-  import Item from "./Item.svelte";
-  import dalamTroli, { jumlahHarga } from "../../stor/troli";
-  import { fly } from "svelte/transition";
-  import { flip } from "svelte/animate";
+  import Item from './Item.svelte'
+  import dalamTroli, { jumlahHarga } from '../../stor/troli'
+  import { fly } from 'svelte/transition'
+  import { flip } from 'svelte/animate'
 </script>
 
 <section class="cart-items">
