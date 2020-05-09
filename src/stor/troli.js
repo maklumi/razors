@@ -70,7 +70,7 @@ export const tambahKeTroli = (prod) => {
 function storTroliLokal() {
   return localStorage.getItem('troli')
     ? JSON.parse(localStorage.getItem('troli'))
-    : []
+    : [{}]
 }
 
 export function setStorTroliLokal(params) {

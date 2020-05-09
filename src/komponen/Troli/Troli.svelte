@@ -1,10 +1,9 @@
 <script>
-  import globalnav from "../../stor/globalNav";
-  import { fly, fade, blur } from "svelte/transition";
-  import { link } from "svelte-routing";
-  import LisItemTroli from "./LisItem.svelte";
-
-  let user = false;
+  import globalnav from '../../stor/globalNav'
+  import { fly, fade, blur } from 'svelte/transition'
+  import { link } from 'svelte-routing'
+  import LisItemTroli from './LisItem.svelte'
+  import user from '../../stor/user'
 </script>
 
 <div class="cart-overlay" transition:blur>
@@ -24,7 +23,7 @@
       <LisItemTroli />
 
       <div class="cart-footer">
-        {#if user}
+        {#if $user.jwt}
           <a
             href="/cekout"
             use:link
