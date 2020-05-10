@@ -6,6 +6,16 @@
   const handleClose = (handleClose) => {
     globalnav.togelItem('alert', false)
   }
+
+  let masatimeout
+  onMount(() => {
+    masatimeout = setTimeout(() => {
+      globalnav.togelItem('alert', false)
+    }, 3000)
+  })
+  onDestroy(() => {
+    clearTimeout(masatimeout)
+  })
 </script>
 
 <div
