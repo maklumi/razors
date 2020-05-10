@@ -2,6 +2,7 @@
   import loginUser from '../strapi/loginUser'
   import registerUser from '../strapi/registerUser'
   import { navigate } from 'svelte-routing'
+  import globalnav from '../stor/globalNav'
 
   let email = ''
   let password = ''
@@ -26,8 +27,11 @@
     }
 
     if (user) {
+      globalnav.togelItem('alert', true, 'Selamat datang ke kedai online frenz')
       navigate('/produk')
       return
+    } else {
+      globalnav.togelItem('alert', true, 'Ada masalah sikit. Cuba lagi')
     }
   }
 </script>
