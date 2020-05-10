@@ -8,7 +8,7 @@
   let password = ''
   let username = 'default username'
   let isMember = true
-  $: isEmpty = !email || !password || !username
+  $: isEmpty = !email || !password || !username || $globalnav.alert
 
   function togelMember() {
     isMember = !isMember
@@ -19,6 +19,7 @@
     }
   }
   async function handleSubmit() {
+    globalnav.togelItem('alert', true, 'loading..')
     let user
     if (isMember) {
       user = await loginUser({ email, password })
