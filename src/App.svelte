@@ -32,4 +32,5 @@
   <Route path="produk" component={Products} />
   <Route path="produk/:id" component={ProductTemplate} />
   <Route path="login" component={Login} />
+  <Route path="/cekout" component={Cekout} />
 </Router>
