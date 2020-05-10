@@ -3,8 +3,16 @@
   import { navigate, link } from 'svelte-routing'
   import userstor from '../stor/user'
   import { jumlahHarga } from '../stor/troli'
+  import { element } from 'svelte/internal'
 
   let name = ''
+
+  let elemenkad
+  let errorkad
+  let kad
+  let stripe
+  let elements
+
   $: isempty = !name
 
   onMount(() => {
@@ -26,6 +34,24 @@
         <label for="name">nama anda</label>
         <input type="text" id="name" bind:value={name} />
       </div>
+      <!-- stripe -->
+      <div class="stripe-input">
+        <label for="card-element">maklumat kad</label>
+        <p class="stripe-info">
+          guna yang ni
+          <span>4242 4242 4242 4242</span>
+          <br />
+          masukkan poskod 5 huruf
+          <br />
+          masuk 3 nombor utk CVC
+        </p>
+
+        <div id="card-element" bind:this={elemenkad}>
+          <!-- bind semua element -->
+        </div>
+        <div id="card-errors" bind:this={errorkad} role="alert" />
+      </div>
+      <!-- end of stripe -->
       {#if isempty}
         <p class="form-empty">sila isi nama</p>
       {:else}
