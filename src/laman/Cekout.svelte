@@ -11,4 +11,11 @@
   })
 </script>
 
-<h1>Cekout</h1>
+{#if $jumlahHarga > 0}
+  <h1>form</h1>
+{:else}
+  <div class="chekout-empty">
+    <h2>Troli kosong</h2>
+    <a href="/produk" use:link class="btn btn-primary">Mula shopping</a>
+  </div>
+{/if}
