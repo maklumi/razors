@@ -4,15 +4,42 @@
   import userstor from '../stor/user'
   import { jumlahHarga } from '../stor/troli'
 
+  let name = ''
+  $: isempty = !name
+
   onMount(() => {
     if (!$userstor.jwt) {
       navigate('/')
     }
   })
+  function handleSubmit() {
+    console.log('submitting form')
+  }
 </script>
 
 {#if $jumlahHarga > 0}
-  <h1>form</h1>
+  <section class="form">
+    <h2 class="section-title">cekout</h2>
+    <form class="checkout-form" on:submit|preventDefault={handleSubmit}>
+      <h3>jumlah order: ${$jumlahHarga}</h3>
+      <div class="form-control">
+        <label for="name">nama anda</label>
+        <input type="text" id="name" bind:value={name} />
+      </div>
+      {#if isempty}
+        <p class="form-empty">sila isi nama</p>
+      {:else}
+        <!-- else content here -->
+      {/if}
+      <button
+        type="submit"
+        class="btn btn-block btn-primary"
+        disabled={isempty}
+        class:disabled={isempty}>
+        submit
+      </button>
+    </form>
+  </section>
 {:else}
   <div class="chekout-empty">
     <h2>Troli kosong</h2>
