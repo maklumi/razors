@@ -8,7 +8,7 @@ export const jumlahHarga = derived(stortroli, ($dalamTroli) => {
     (acc, curr) => acc + curr.amount * curr.price,
     0,
   )
-  return jumlah.toFixed(2)
+  return parseFloat(jumlah.toFixed(2))
 })
 
 const remove = (id, items) => {

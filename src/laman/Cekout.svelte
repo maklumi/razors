@@ -5,6 +5,7 @@
   import stortroli, { jumlahHarga } from '../stor/troli'
   import { element } from 'svelte/internal'
   import submitOrder from '../strapi/submitOrder'
+  import globalnav from '../stor/globalNav'
 
   let name = ''
 
@@ -37,6 +38,8 @@
     })
   })
   async function handleSubmit() {
+    globalnav.togelItem('alert', true, 'submitting order.. tunggu sebentar!')
+
     let response = await stripe
       .createToken(kad)
       .catch((error) => console.log(error))
@@ -50,8 +53,15 @@
         stripeTokenId: id,
         userToken: $userstor.jwt,
       })
-      console.log(ode)
+      if (ode) {
+        globalnav.togelItem('alert', false, 'ode complete')
+        stortroli.set([])
+        localStorage.setItem('troli', JSON.stringify([]))
+        navigate('/')
+        return
+      }
     } else {
+      globalnav.togelItem('alert', true, 'ada error pada ode, cuba lagi')
     }
   }
 </script>
