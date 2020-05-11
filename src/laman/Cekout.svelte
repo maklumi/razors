@@ -20,6 +20,9 @@
       navigate('/')
       return
     }
+    if ($jumlahHarga < 1) {
+      return
+    }
     stripe = Stripe('pk_test_e3ha78maNAH3f1jzat61YZCj00IvZTtHjw')
     elements = stripe.elements()
     kad = elements.create('card')
