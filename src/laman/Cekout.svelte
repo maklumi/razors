@@ -2,8 +2,9 @@
   import { onMount } from 'svelte'
   import { navigate, link } from 'svelte-routing'
   import userstor from '../stor/user'
-  import { jumlahHarga } from '../stor/troli'
+  import stortroli, { jumlahHarga } from '../stor/troli'
   import { element } from 'svelte/internal'
+  import submitOrder from '../strapi/submitOrder'
 
   let name = ''
 
@@ -41,9 +42,16 @@
       .catch((error) => console.log(error))
     const { token } = response
     if (token) {
-      console.log(response)
+      const { id } = token
+      let ode = await submitOrder({
+        name,
+        total: $jumlahHarga,
+        items: $stortroli,
+        stripeTokenId: id,
+        userToken: $userstor.jwt,
+      })
+      console.log(ode)
     } else {
-      console.log(response)
     }
   }
 </script>
