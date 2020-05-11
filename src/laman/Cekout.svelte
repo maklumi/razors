@@ -18,7 +18,19 @@
   onMount(() => {
     if (!$userstor.jwt) {
       navigate('/')
+      return
     }
+    stripe = Stripe('pk_test_e3ha78maNAH3f1jzat61YZCj00IvZTtHjw')
+    elements = stripe.elements()
+    kad = elements.create('card')
+    kad.mount(elemenkad)
+    kad.addEventListener('change', function (event) {
+      if (event.error) {
+        errorkad.textContent = event.error.message
+      } else {
+        errorkad.textContent = ''
+      }
+    })
   })
   function handleSubmit() {
     console.log('submitting form')
