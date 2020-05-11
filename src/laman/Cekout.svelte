@@ -32,8 +32,16 @@
       }
     })
   })
-  function handleSubmit() {
-    console.log('submitting form')
+  async function handleSubmit() {
+    let response = await stripe
+      .createToken(kad)
+      .catch((error) => console.log(error))
+    const { token } = response
+    if (token) {
+      console.log(response)
+    } else {
+      console.log(response)
+    }
   }
 </script>
 
